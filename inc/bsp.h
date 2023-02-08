@@ -32,18 +32,20 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef TEMPLATE_H
-#define TEMPLATE_H
+#ifndef BSP_H
+#define BSP_H
 
-/** \brief Brief description of the file
+/** \brief Board hardware abstraction declarations
  **
  ** Full file description
  **
- ** \addtogroup name Module denomination
- ** \brief Brief description of the module
+ ** \addtogroup hal HAL
+ ** \brief Hardware abstraction layer
  ** @{ */
 
 /* === Headers files inclusions ================================================================ */
+
+#include "digital.h"
 
 /* === Cabecera C++ ============================================================================ */
 
@@ -54,6 +56,19 @@ extern "C" {
 /* === Public macros definitions =============================================================== */
  
 /* === Public data type declarations =========================================================== */
+
+typedef struct board_s
+{
+    digital_output_t led_azul;
+    digital_output_t led_rojo;
+    digital_output_t led_amarillo;
+    digital_output_t led_verde;
+
+    digital_input_t boton_prueba;
+    digital_input_t boton_cambiar;
+    digital_input_t boton_prender;
+    digital_input_t boton_apagar;
+} const * board_t;
  
 /* === Public variable declarations ============================================================ */
 
@@ -67,4 +82,4 @@ extern "C" {
 
 /** @} End of module definition for doxygen */
 
-#endif   /* TEMPLATE_H */
+#endif   /* BSP_H */
