@@ -32,8 +32,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef SCREEN_H   /*! @cond    */
-#define SCREEN_H   /*! @endcond */
+#ifndef PANTALLA_H   /*! @cond    */
+#define PANTALLA_H   /*! @endcond */
 
 /** @file plantilla.h
  **
@@ -126,4 +126,4 @@ void DisplayRefresh(display_t display);
 
 /** @} Final de la definición del modulo para doxygen */
 
-#endif   /* SCREEN_H */
+#endif   /* PANTALLA_H */

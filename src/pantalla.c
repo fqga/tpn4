@@ -52,7 +52,7 @@
 
 /* === Inclusiones de cabeceras ============================================ */
 
-#include "screen.h"
+#include "pantalla.h"
 #include <string.h>
 
 /* === Definicion y Macros privados ======================================== */

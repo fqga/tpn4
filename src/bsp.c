@@ -150,7 +150,7 @@ void displayInit(void){
 
     static const struct display_driver_s display_driver = {
         .ScreenTurnOff = clearScreen,
-        .ScreenTurnOn = WriteNumber,
+        .SegmentsTurnOn = WriteNumber,
         .DigitTurnOn = SelectDigit,
     };
 

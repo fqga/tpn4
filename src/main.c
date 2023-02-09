@@ -43,7 +43,7 @@
 
 #include <stdbool.h>
 #include "bsp.h"
-#include "screen.h"
+#include "pantalla.h"
 
 /* === Macros definitions ====================================================================== */
 
