@@ -43,6 +43,7 @@
 
 #include <stdbool.h>
 #include "bsp.h"
+#include "screen.h"
 
 /* === Macros definitions ====================================================================== */
 
@@ -62,42 +63,16 @@
 
 int main(void) {
 
-    int divisor  = 0;
+    uint8_t number[4] = {5,4,3,2};
     board_t board = BoardCreate();
+    DisplayWriteBCD(board->display, number, sizeof(number));
 
     while (true) {
-        if (DigitalInputGetState(board->boton_prueba) == 0) {
-            DigitalOutputActivate(board->led_azul);
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_B_GPIO, LED_B_BIT, true);
-        } else {
-            DigitalOutputDeactivate(board->led_azul);
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_B_GPIO, LED_B_BIT, false);
-        }
 
-        if (DigitalInputHasActivated(board->boton_cambiar)) {
-            DigitalOutputToggle(board->led_rojo);
-        }
-
-        if (DigitalInputGetState(board->boton_prueba) == 0) {
-            DigitalOutputActivate(board->led_amarillo);
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_2_GPIO, LED_2_BIT, true);
-        }
-        if (DigitalInputGetState(board->boton_apagar) == 0) {
-            DigitalOutputDeactivate(board->led_amarillo);
-            //Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED_2_GPIO, LED_2_BIT, false);
-        }
-
-        divisor++;
-        if (divisor == 5) {
-            divisor = 0;
-            DigitalOutputToggle(board->led_verde);
-            //Chip_GPIO_SetPinToggle(LPC_GPIO_PORT, LED_3_GPIO, LED_3_BIT);
-        }
-
-        for (int index = 0; index < 100; index++) {
-            for (int delay = 0; delay < 25000; delay++) {
-                __asm("NOP");
-            }
+        DisplayRefresh(board->display);
+        
+        for (int delay = 0; delay < 2500; delay++) {
+            __asm("NOP");
         }
     }
 }
